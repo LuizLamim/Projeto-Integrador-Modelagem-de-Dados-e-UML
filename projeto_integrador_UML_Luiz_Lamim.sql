@@ -57,3 +57,18 @@ CREATE TABLE Investimento (
     PRIMARY KEY (ID_Investimento),
     FOREIGN KEY (CPF_Cliente) REFERENCES Cliente (CPF)
 );
+
+
+-- Tabela Contato (Entidade Associativa)
+CREATE TABLE Contato (
+    ID_Contato INT AUTO_INCREMENT,
+    CPF_Cliente CHAR(14) NOT NULL,
+    ID_Funcionario INT NOT NULL,
+    Forma_Contato VARCHAR(20),
+    Data_Contato DATE,
+    Produto_Assunto VARCHAR(100),
+    PRIMARY KEY (ID_Contato),
+    FOREIGN KEY (CPF_Cliente) REFERENCES Cliente (CPF),
+    FOREIGN KEY (ID_Funcionario) REFERENCES Funcionario(ID_Funcionario)
+);
+
